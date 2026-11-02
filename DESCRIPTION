@@ -1,0 +1,34 @@
+Package: dataADHD
+Type: Package
+Title: Custom Data Analysis for ADHD and Mindfulness Study
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Daniel", "Gertner",
+      email = "danielgertner00@gmail.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: Contains functions for performing data analyses for the ADHD and
+    Mindfulness study, optimised for an APA-compliant output.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    BayesFactor,
+    BayesianFirstAid,
+    dplyr,
+    flextable,
+    ggplot2,
+    ggtext,
+    officer,
+    psych,
+    purrr,
+    stringr,
+    tibble,
+    tidyr,
+    tidyselect
+Config/roxygen2/version: 8.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
