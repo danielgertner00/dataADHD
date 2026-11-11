@@ -8,7 +8,7 @@
 #' @return Returns a ggplot2 object
 #' @export
 
-hdi_plots <- function(df, name_map, fig_num) {
+hdi_plots <- function(df, name_map) {
   df <- df |>
     dplyr::mutate(
       variable = ifelse(
