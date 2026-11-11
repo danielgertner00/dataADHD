@@ -11,10 +11,31 @@ The goal of dataADHD is to allow me to easily employ the analyses used in the st
 
 ## Installation
 
-You can install the development version of dataADHD like so: 
+This package requires [the devtools package](http://cran.r-project.org/web/packages/devtools/index.html) and [JAGS](https://mcmc-jags.sourceforge.io/) to install the [Bayesian First Aid package](https://github.com/rasmusab/bayesian_first_aid)
+
+### Step 1: devtools
 
 ``` r
-remotes::install_github("danielgertner00/dataADHD")
+install.packages("devtools")
+```
+
+### Step 2: JAGS
+
+```
+sudo apt update
+sudo apt install jags
+```
+
+### Step 3: BayesianFirstAid
+
+``` r
+devtools::install_github("rasmusab/bayesian_first_aid")
+```
+
+### Step 4: dataADHD
+
+``` r
+devtools::install_github("danielgertner00/dataADHD")
 ```
 
 ## Functions
