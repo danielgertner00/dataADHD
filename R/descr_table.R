@@ -4,12 +4,11 @@
 #' 
 #' @param descr data frame to be analysed
 #' @param name_map mapping for variable names as they're supposed to appear on the plot
-#' @param table_num string, title header row, eg. "Table 1."
 #' 
 #' @return Returns a flextable
 #' @export
 
-descr_table <- function(descr, name_map, table_num) {
+descr_table <- function(descr, name_map) {
   
   descr <- descr |> dplyr::select(-`n_Session 2`) |> 
     dplyr::mutate(spacer = "") |> 
@@ -60,16 +59,6 @@ descr_table <- function(descr, name_map, table_num) {
     flextable::font(fontname = "Times New Roman", part = "all") |> 
     flextable::fontsize(size = 11, part = "all") |>
     flextable::valign(valign = "bottom", "part" = "header") |> 
-    
-    flextable::add_header_lines(values = c(
-      table_num,
-      "Descriptive Statistics for Each Variable."
-    )) |>
-    
-    flextable::bold(i = 1, part = "header") |> 
-    flextable::italic(i = 2, part = "header") |> 
-    flextable::align(i = 1:2, align = "left", part = "header") |> 
-    flextable::hline(i = 1, part = "header", border = officer::fp_border(width = 0)) |> 
     
     flextable::align(j = 1, align = "left", part = "all") |> 
     flextable::bg(bg = "white", part = "all") |> 

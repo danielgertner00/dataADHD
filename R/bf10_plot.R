@@ -4,11 +4,10 @@
 #'
 #' @param bf10 data frame to be analysed
 #' @param name_map mapping for variable names as they're supposed to appear on the plot
-#' @param fig_num string, title header row, ex. "Figure 1."
 #'
 #' @return Returns a ggplot2 object
 #' @export
-bf10_plot <- function(bf10, name_map, fig_num) {
+bf10_plot <- function(bf10, name_map) {
 
   bf10 <- bf10 |> dplyr::select(variable, bf10_small, bf10_medium, bf10_massive) |> tidyr::pivot_longer(
     cols = tidyselect::starts_with("bf10_"),
@@ -36,12 +35,9 @@ bf10_plot <- function(bf10, name_map, fig_num) {
 
     ggplot2::theme_classic() +
     ggplot2::labs(
-      title = fig_num,
-      subtitle = "Bayes Factors Across Different Priors for Significant Variables.",
       x = "Prior Scale",
       y = expression(BF[10]),
-      color = "Variable",
-      caption = "<i>Note.</i> Coloured lines represent each listed variable according to the legend, with dots indicating the BF10 for each prior. The dotted horizontal lines indicate categorical interpretation borders for anecdotal evidence (BF10 1-3), substantial evidence (BF10 3-10), and strong evidence (BF10 10-30) for the alternative hypothesis.<br> \u2020 Standardized test scores. <br>Abbreviations: BF - Bayes Factor."
+      color = "Variable"
     ) +
     ggplot2::theme(
       text = ggplot2::element_text(family = "serif", color = "black"),
